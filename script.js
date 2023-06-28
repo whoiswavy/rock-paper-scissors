@@ -8,7 +8,7 @@ function capitalizeFirstLetter(string) {
 }
 
 function getComputerChoice() {
-  const choice = ['Rock', 'Paper', 'Scissors'];
+  const choice = ['Pierre', 'Papier', 'Ciseaux'];
   const randomElement = choice[Math.floor(Math.random() * choice.length)];
   return randomElement;
 }
@@ -19,65 +19,65 @@ function playRound(playerSelection, computerSelection) {
 
   if (playerSelection == computerSelection) {
     roundWinner = 'tie';
-    resultDiv.textContent = "You Drew!";
+    resultDiv.textContent = "C'est une égalité!";
   }
   if (
-    ((playerSelection == 'Rock') && (computerSelection == 'Paper')) ||
-    ((playerSelection == 'Scissors') && (computerSelection == 'Rock')) ||
-    ((playerSelection == 'Paper') && (computerSelection == 'Scissors'))
+    ((playerSelection == 'Pierre') && (computerSelection == 'Papier')) ||
+    ((playerSelection == 'Ciseaux') && (computerSelection == 'Pierre')) ||
+    ((playerSelection == 'Papier') && (computerSelection == 'Ciseaux'))
   ) {
     computerScore++;
     roundWinner = 'player';
     resultDiv.textContent = `You Lost! ${computerSelection} beats ${playerSelection}`;
   }
   if (
-    ((playerSelection == 'Paper') && (computerSelection == 'Rock')) ||
-    ((playerSelection == 'Rock') && (computerSelection == 'Scissors')) ||
-    ((playerSelection == 'Scissors') && (computerSelection == 'Paper'))
+    ((playerSelection == 'Papier') && (computerSelection == 'Pierre')) ||
+    ((playerSelection == 'Pierre') && (computerSelection == 'Ciseaux')) ||
+    ((playerSelection == 'Ciseaux') && (computerSelection == 'Papier'))
   ) {
     playerScore++;
     roundWinner = 'computer';
-    resultDiv.textContent = `You Win! ${playerSelection} beats ${computerSelection}`;
+    resultDiv.textContent = `Tu gagnes! ${playerSelection} a battu ${computerSelection}`;
   }
 
-  scoreDiv.textContent = `Player: ${playerScore} - Computer: ${computerScore}`;
+  scoreDiv.textContent = `Joueur: ${playerScore} - Ordinateur: ${computerScore}`;
 
   if (playerScore === 5) {
     gameWinner = 'player';
-    resultDiv.textContent = 'Congratulations! You won the game!';
+    resultDiv.textContent = "Félicitations! Tu as gagné la partie!";
     disableButtons();
   }
   if (computerScore === 5) {
     gameWinner = 'computer';
-    resultDiv.textContent = 'Sorry! Computer won the game!';
+    resultDiv.textContent = "Désolé! L'ordinateur a remporté la partie!";
     disableButtons();
   }
 }
 
 function disableButtons() {
-  rockButton.disabled = true;
-  paperButton.disabled = true;
-  scissorsButton.disabled = true;
+  PierreButton.disabled = true;
+  PapierButton.disabled = true;
+  CiseauxButton.disabled = true;
 }
 
-const rockButton = document.getElementById('rock');
-const paperButton = document.getElementById('paper');
-const scissorsButton = document.getElementById('scissors');
+const PierreButton = document.getElementById('rock');
+const PapierButton = document.getElementById('paper');
+const CiseauxButton = document.getElementById('scissors');
 
-rockButton.addEventListener('click', function() {
-  const playerSelection = 'Rock';
+PierreButton.addEventListener('click', function() {
+  const playerSelection = 'Pierre';
   const computerSelection = getComputerChoice();
   playRound(playerSelection, computerSelection);
 });
 
-paperButton.addEventListener('click', function() {
-  const playerSelection = 'Paper';
+PapierButton.addEventListener('click', function() {
+  const playerSelection = 'Papier';
   const computerSelection = getComputerChoice();
   playRound(playerSelection, computerSelection);
 });
 
-scissorsButton.addEventListener('click', function() {
-  const playerSelection = 'Scissors';
+CiseauxButton.addEventListener('click', function() {
+  const playerSelection = 'Ciseaux';
   const computerSelection = getComputerChoice();
   playRound(playerSelection, computerSelection);
 });

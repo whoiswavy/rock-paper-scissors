@@ -6,6 +6,7 @@ body {
     height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
+    background-color: black;
   }
 
   .button-container {
@@ -24,9 +25,11 @@ body {
   #result {
     font-size: 24px;
     margin-top: 20px;
+    color: white;
   }
 
   #score {
     font-size: 18px;
     margin-top: 10px;
+    color: white;
   }
