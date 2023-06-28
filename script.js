@@ -28,7 +28,7 @@ function playRound(playerSelection, computerSelection) {
   ) {
     computerScore++;
     roundWinner = 'player';
-    resultDiv.textContent = `You Lost! ${computerSelection} beats ${playerSelection}`;
+    resultDiv.textContent = `Tu as perdu! ${computerSelection} a battu ${playerSelection}`;
   }
   if (
     ((playerSelection == 'Papier') && (computerSelection == 'Pierre')) ||
